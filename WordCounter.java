@@ -1,19 +1,24 @@
 import java.util.*;
 
-/*
- * This is the starter code for Part 2.1.
- * 
- * Modify this code so that it uses the Singleton pattern.
- */
-
 public class WordCounter {
-	
+
+	private static WordCounter instance;
+
 	private DataSource source;
-	
-	public WordCounter(DataSource source) { 
+
+	private WordCounter() { }
+
+	public static WordCounter getInstance() {
+		if (instance == null) {
+			instance = new WordCounter();
+		}
+		return instance;
+	}
+
+	public void setDataSource(DataSource source) {
 		this.source = source;
 	}
-		
+
 	public Map<String, Integer> countWords() {
 		List<String> lines = source.read();
 		if (lines == null || lines.isEmpty()) {
