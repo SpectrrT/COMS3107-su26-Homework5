@@ -17,9 +17,8 @@ public class FileReader implements Iterable<String> {
 	@Override
 	public Iterator<String> iterator() {
 		// uncomment the following line after you implement the FileIterator class
-		// return new FileIterator(filename);
+		return new FileIterator(filename);
 
-		return null; // remove this after implementing FileIterator
 	}
 	
 	public static void main(String[] args) {
